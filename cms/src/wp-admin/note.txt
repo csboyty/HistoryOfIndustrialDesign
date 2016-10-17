@@ -1,0 +1,48 @@
+
+13873119858
+
+
+wp_enqueue_script  添加额外的js
+
+
+add_filter('mce_external_plugins', 'my_custom_plugins');  添加额外的富文本编辑器插件
+
+
+Quicktags  只能将按钮添加到编辑器的文本编辑模式非可视化编辑模式
+
+
+wordpress 上传控件从swfupload（插件仍然可以使用）转到了plupload（该控件是tinyMCE团队开发）
+
+
+
+wordpress hook（钩子）  函数  上传（plupload）
+
+
+wordpress plugin resource 最后的几篇文章
+
+
+
+
+项目做完后，编写二次开发文档
+
+
+
+
+编写一个像wordpress的editimage.js一样的文件
+
+
+
+增加url的重写规则，在客户端播放视频的时候能够使用友好的url链接。
+
+
+
+
+
+讨论下规则，然后开始编写图文混排的代码。
+
+
+
+文章删除的时候是否把相关的自定义记录，标签等删除了。
+
+
+优酷的通用代码是自己写了js 如果是支持html5的就用video标签，如果不支持则用flash。

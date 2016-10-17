@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<display-name>hid doc maker</display-name>
+
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>hid-bundle-app.root</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>/WEB-INF/classes/log4j.properties</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath*:/applicationContext.xml</param-value>
+	</context-param>
+	
+	<listener>
+		<listener-class>com.zhongyi.hid.service.SystemContextListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	
+	
+	<servlet>
+		<servlet-name>serverStatusServlet</servlet-name>
+		<servlet-class>com.zhongyi.hid.http.ServerStatusServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>serverStatusServlet</servlet-name>
+		<url-pattern>/serverStauts/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>dataUpdateServlet</servlet-name>
+		<servlet-class>com.zhongyi.hid.http.DataUpdateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dataUpdateServlet</servlet-name>
+		<url-pattern>/dataUpdate/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>dataUpdateServlet</servlet-name>
+		<url-pattern>/dataUpdate.json/*</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>downloadBundleServlet</servlet-name>
+		<servlet-class>com.zhongyi.hid.http.DownloadBundleServlet</servlet-class>
+	</servlet>
+		<servlet-mapping>
+		<servlet-name>downloadBundleServlet</servlet-name>
+		<url-pattern>/download/*</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>makeBundleServlet</servlet-name>
+		<servlet-class>com.zhongyi.hid.http.MakeBundleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>makeBundleServlet</servlet-name>
+		<url-pattern>/makeBundle</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>removeBundleServlet</servlet-name>
+		<servlet-class>com.zhongyi.hid.http.RemoveBundleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>removeBundleServlet</servlet-name>
+		<url-pattern>/removeBundle</url-pattern>
+	</servlet-mapping>
+</web-app>

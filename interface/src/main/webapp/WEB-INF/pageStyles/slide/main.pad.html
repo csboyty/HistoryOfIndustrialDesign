@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>工业设计史</title>
+<script type="text/javascript" src="public/main.pad.js"></script>
+<link rel="stylesheet" type="text/css" href="public/main.pad.css" />
+</head>
+
+<body>
+<header class="slide-header">
+    <h1 class="slide-title" th:utext="${title}">这里是文章标题</h1>
+    <ul class="slide-tags">
+    <li class="date" th:utext="${year}"  th:if="${not #strings.isEmpty(year)}">年份</li>
+    <li class="genre" th:utext="${genre}"  th:if="${not #strings.isEmpty(genre)}">流派</li>
+    <li class="location" th:utext="${city}"  th:if="${not #strings.isEmpty(city)}" >地点</li>
+    <li class="people" th:utext="${artists}" th:if="${not #strings.isEmpty(artists)}">人物名</li>
+    <li class="orgnization" th:utext="${organizations}" th:if="${not #strings.isEmpty(organizations)}">组织</li>
+    </ul>
+    <p class="slide-intro" th:utext="${description}" th:if="${not #strings.isEmpty(description)}">
+		关于这个幻灯片的部分文字。
+	</p>
+    
+</header>
+
+<div class="all-slides" th:if="${not #lists.isEmpty(slides)}">
+	<section class="slide" th:each="slide:${slides}">
+		<div class="slide-content">
+			<a href="data/01_03.jpg" th:href="${slide.linkHref}" th:attr="data-zy-post-id=${slide.docId}" th:class="${slide.linkClass}" >
+				<!-- 
+					<img src="data/01_03.jpg" th:src="${#strings.append(slide.linkHref,'.small')}" th:attr="data-zy-media-id=${slide.myMediaId}" />
+				 -->
+				   <img src="data/01_03.jpg" th:src="${slide.src}" th:attr="data-zy-media-id=${slide.myMediaId}" />
+			</a>
+		</div>
+		<div class="slide-info">
+			<h3 th:utext="${slide.imageTitle}" th:if="${not #strings.isEmpty(slide.imageTitle)}">这里是图片标题</h3>
+			<p class="slide-description" th:utext="${slide.imageMemo}" th:if="${not #strings.isEmpty(slide.imageMemo)}">这里是图片描述</p>
+		</div>
+	</section>
+</div>
+</body>
+</html>
